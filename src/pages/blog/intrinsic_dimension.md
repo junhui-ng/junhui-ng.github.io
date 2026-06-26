@@ -21,7 +21,7 @@ The relative importance of each dimension remains an open question. Nevertheless
 
 <figure class="w-[80%] min-w-[300px] mx-auto">
   <img 
-    src="/junhui-ng.github.io/assets/intrinsic_scale_trends.png" 
+    src="/assets/intrinsic_scale_trends.png" 
     alt="Model scale trend." 
     class="w-full rounded-xl" 
   />
@@ -67,7 +67,7 @@ Now let's look at the objective landscape. The solution set is a 2D affine plane
 
 <figure class="w-[80%] max-w-[300px] mx-auto">
   <img 
-    src="/junhui-ng.github.io/assets/intrinsic_dim_viz.gif" 
+    src="/assets/intrinsic_dim_viz.gif" 
     alt="Objective landscape." 
     class="w-full rounded-xl" 
   />
