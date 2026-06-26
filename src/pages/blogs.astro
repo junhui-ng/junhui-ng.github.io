@@ -1,0 +1,64 @@
+---
+// src/pages/blogs.astro
+import Layout from '../layouts/Layout.astro';
+import BlogFooter from '../components/BlogFooter.astro';
+
+// In a real app, you would fetch these from src/content/blog/
+const notes = [
+    {
+        title: "About Intrinsic Dimension", 
+        date: "Jun 26, 2026", 
+        url: "/blog/intrinsic_dimension", 
+        desc: "An introduction to intrinsic dimension: the theoretical foundation of PEFT."
+    },
+    // {
+    //     title: "Notes on 'Attention Is All You Need'", 
+    //     date: "Dec 14, 2025", 
+    //     url: "/blog/transformer", 
+    //     desc: "A deep dive into the transformer architecture math."
+    // },
+];
+---
+
+<Layout title="Blogs - Ng Jun Hui">
+  <header class="mb-12">
+    <h1 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4">
+      Notes & Thoughts
+    </h1>
+    <p class="text-zinc-600 dark:text-zinc-400">
+      A collection of technical deep dives, paper reviews, and engineering logs.
+    </p>
+  </header>
+
+  <div class="space-y-10">
+    {notes.map(note => (
+      <article class="group relative flex flex-col items-start">
+        <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 group-hover:text-stanford dark:group-hover:text-stanford-light transition-colors">
+          <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+          <a href={note.url}>
+            <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+            <span class="relative z-10">{note.title}</span>
+          </a>
+        </h2>
+        <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime={note.date}>
+          <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+          </span>
+          {note.date}
+        </time>
+        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          {note.desc}
+        </p>
+        
+        <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-stanford dark:text-stanford-light">
+          Read article
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current">
+            <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <BlogFooter />
+</Layout>
